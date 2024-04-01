@@ -1,11 +1,16 @@
 #!/usr/bin/python3
 """
-Python script that fetches an URL with requests package
+- Sends an HTTP GET request to the URL.
+- Uses the 'requests' library for making the request.
+- Prints information about the response received.
 """
+
 import requests
 
-
 if __name__ == "__main__":
-    r = requests.get('https://alx-intranet.hbtn.io/status')
-    t = r.text
-    print('Body response:\n\t- type: {}\n\t- content: {}'.format(type(t), t))
+    url = "https://alx-intranet.hbtn.io/status"
+    response = requests.get(url)
+
+    print("Body response:")
+    print(f"\t- type: {type(response.text)}")
+    print(f"\t- content: {response.text}")

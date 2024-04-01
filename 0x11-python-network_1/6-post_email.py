@@ -1,10 +1,22 @@
 #!/usr/bin/python3
-""" post email """
+"""
+POST request to the passed URL with the email as a parameter
+"""
+
 import requests
-import sys
+from sys import argv
+
+
+def main(argv):
+    """
+    Sends a POST request to the passed URL with the email as a parameter,
+    and displays the body of the response (decoded in utf-8)
+    """
+    values = {'email': argv[2]}
+    url = argv[1]
+    response = requests.post(url, data=values)
+    print(response.text)
 
 
 if __name__ == "__main__":
-    email = {'email': sys.argv[2]}
-    r = requests.post(sys.argv[1], data=email)
-    print(r.text)
+    main(argv)
